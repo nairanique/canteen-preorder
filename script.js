@@ -4,7 +4,7 @@ const menuData = [
         id: 1,
         name: "Bottled Water (Small)",
         category: "beverages",
-        price: 15
+        price: 15,
         emoji: "💧"
     },
     {

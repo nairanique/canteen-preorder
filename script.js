@@ -169,9 +169,9 @@ function removeFromCart(itemId) {
 
 // Update cart summary
 function updateCartSummary() {
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-      document.getElementById('total').textContent = `₱${total.toFixed(2)}`;
+    document.getElementById('total').textContent = `₱${total.toFixed(2)}`;
 }
 
 // Update cart count
@@ -276,24 +276,20 @@ function placeOrder() {
     const pickupTime = document.getElementById('pickupTime').value;
     const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
 
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const total = subtotal
+const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-    const orderId = 'ORD' + Date.now();
-    
-    const order = {
-        id: orderId,
-        studentName,
-        studentClass,
-        pickupTime,
-        paymentMethod,
-        items: [...cart],
-        subtotal,
-        total,
-        status: 'pending',
-        date: new Date().toLocaleString(),
-        timestamp: Date.now()
-    };
+const order = {
+    id: orderId,
+    studentName,
+    studentClass,
+    pickupTime,
+    paymentMethod,
+    items: [...cart],
+    total,
+    status: 'pending',
+    date: new Date().toLocaleString(),
+    timestamp: Date.now()
+};
 
     orders.push(order);
     saveOrdersToStorage();

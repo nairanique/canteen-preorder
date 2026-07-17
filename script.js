@@ -62,7 +62,7 @@ function createMenuItemElement(item) {
             <div class="menu-item-name">${item.name}</div>
             <div class="menu-item-description">${item.description}</div>
             <div class="menu-item-category">${item.category.toUpperCase()}</div>
-            <div class="menu-item-price">₹${item.price}</div>
+            <div class="menu-item-price">₱${item.price}</div>
             <div class="quantity-control">
                 <button class="quantity-btn" onclick="decreaseQuantity(this)">−</button>
                 <input type="number" class="quantity-input" value="1" min="1">
@@ -129,7 +129,7 @@ function updateCartDisplay() {
             <div class="cart-item">
                 <div class="cart-item-info">
                     <div class="cart-item-name">${item.name}</div>
-                    <div class="cart-item-price">₹${item.price} each</div>
+                    <div class="cart-item-price">₱${item.price} each</div>
                 </div>
                 <div class="cart-item-quantity">
                     <button onclick="updateQuantity(${item.id}, -1)">−</button>

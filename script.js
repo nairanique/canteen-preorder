@@ -1,7 +1,5 @@
 // Sample menu data
 const menuData = [
-
-    },
     {
         id: 1,
         name: "Bottled Water (Small)",

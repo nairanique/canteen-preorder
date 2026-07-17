@@ -21,7 +21,7 @@ const menuData = [
         price: 15,
         emoji: "🍞"
     }
-];
+    ];
 
 // Cart array
 let cart = [];

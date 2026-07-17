@@ -173,9 +173,8 @@ function updateCartSummary() {
     const tax = subtotal * 0.05;
     const total = subtotal + tax;
 
-    document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
-    document.getElementById('tax').textContent = `₹${tax.toFixed(2)}`;
-    document.getElementById('total').textContent = `₹${total.toFixed(2)}`;
+    document.getElementById('subtotal').textContent = `₱${subtotal.toFixed(2)}`;
+    document.getElementById('total').textContent = `₱${total.toFixed(2)}`;
 }
 
 // Update cart count
@@ -226,16 +225,14 @@ function setupNavigation() {
 // Setup payment method toggle
 function setupPaymentToggle() {
     const radioButtons = document.querySelectorAll('input[name="payment"]');
+    const gcashDetails = document.getElementById('gcashDetails');
     
     radioButtons.forEach(radio => {
         radio.addEventListener('change', () => {
-            document.getElementById('upiDetails').classList.add('hidden');
-            document.getElementById('cardDetails').classList.add('hidden');
+             gcashDetails.classList.add('hidden');
 
-            if (radio.value === 'upi') {
-                document.getElementById('upiDetails').classList.remove('hidden');
-            } else if (radio.value === 'card') {
-                document.getElementById('cardDetails').classList.remove('hidden');
+             if (radio.value === 'gcash') {
+                 gcashDetails.classList.remove('hidden');
             }
         });
     });

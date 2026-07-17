@@ -136,7 +136,7 @@ function updateCartDisplay() {
                     <input type="number" value="${item.quantity}" readonly>
                     <button onclick="updateQuantity(${item.id}, 1)">+</button>
                 </div>
-                <div style="font-weight: 600; min-width: 70px; text-align: right;">₹${item.price * item.quantity}</div>
+                <div style="font-weight: 600; min-width: 70px; text-align: right;">₱${item.price * item.quantity}</div>
                 <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
             </div>
         `).join('');
@@ -362,24 +362,21 @@ function placeOrder() {
     updateCartDisplay();
 
     // Reset form
-    document.getElementById('studentName').value = '';
-    document.getElementById('studentClass').value = '';
-    document.getElementById('pickupTime').value = '';
-    document.getElementById('upiId').value = '';
-    document.getElementById('cardName').value = '';
-    document.getElementById('cardNumber').value = '';
-    document.getElementById('cardExpiry').value = '';
-    document.getElementById('cardCVV').value = '';
+   document.getElementById('studentName').value = '';
+   document.getElementById('studentClass').value = '';
+   document.getElementById('pickupTime').value = '';
 }
 
 // Show confirmation modal
 function showConfirmation(order) {
     document.getElementById('orderId').textContent = order.id;
     document.getElementById('confirmPickupTime').textContent = order.pickupTime;
-    document.getElementById('confirmTotal').textContent = `₹${order.total.toFixed(2)}`;
+    document.getElementById('confirmTotal').textContent = `₱${order.total.toFixed(2)}`;
+
     document.getElementById('confirmPayment').textContent = 
-        order.paymentMethod === 'cash' ? 'Cash (at pickup)' :
-        order.paymentMethod === 'upi' ? 'UPI' : 'Card';
+        order.paymentMethod === 'cash'
+            ? 'Cash (at pickup)'
+            : 'GCash';
 
     document.getElementById('confirmationModal').classList.remove('hidden');
 }
@@ -444,13 +441,13 @@ function displayOrders() {
                 ${order.items.map(item => `
                     <div class="order-item">
                         <span>${item.name} x${item.quantity}</span>
-                        <span>₹${(item.price * item.quantity).toFixed(2)}</span>
+                        <span>₱${(item.price * item.quantity).toFixed(2)}</span>
                     </div>
                 `).join('')}
             </div>
             <div class="order-detail-item" style="border-top: 2px solid var(--primary-red); padding-top: 1rem; margin-top: 0.5rem;">
                 <span><strong>Total:</strong></span>
-                <span style="color: var(--primary-red); font-weight: 700;">₹${order.total.toFixed(2)}</span>
+                <span style="color: var(--primary-red); font-weight: 700;">₱${order.total.toFixed(2)}</span>
             </div>
         </div>
     `).join('');

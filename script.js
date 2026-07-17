@@ -1,101 +1,27 @@
 // Sample menu data
 const menuData = [
+
+    },
     {
         id: 1,
-        name: "Dosa",
-        category: "breakfast",
-        price: 50,
-        description: "Crispy rice crepe with sambar",
-        emoji: "🥘"
+        name: "Bottled Water (Small)",
+        category: "beverages",
+        price: 15
+        emoji: "💧"
     },
     {
         id: 2,
-        name: "Idli",
-        category: "breakfast",
-        price: 30,
-        description: "Steamed rice cakes",
-        emoji: "🍚"
+        name: "Cream-O",
+        category: "snacks",
+        price: 15,
+        emoji: "🍪"
     },
     {
         id: 3,
-        name: "Butter Naan",
-        category: "lunch",
-        price: 40,
-        description: "Soft naan with butter",
-        emoji: "🥖"
-    },
-    {
-        id: 4,
-        name: "Biryani",
-        category: "lunch",
-        price: 80,
-        description: "Fragrant basmati rice",
-        emoji: "🍛"
-    },
-    {
-        id: 5,
-        name: "Samosa",
+        name: "Skyflakes",
         category: "snacks",
         price: 15,
-        description: "Crispy pastry with filling",
-        emoji: "🥟"
-    },
-    {
-        id: 6,
-        name: "Pakora",
-        category: "snacks",
-        price: 20,
-        description: "Fried vegetable fritters",
-        emoji: "🍖"
-    },
-    {
-        id: 7,
-        name: "Orange Juice",
-        category: "beverages",
-        price: 25,
-        description: "Fresh orange juice",
-        emoji: "🧃"
-    },
-    {
-        id: 8,
-        name: "Mango Lassi",
-        category: "beverages",
-        price: 30,
-        description: "Sweet yogurt drink",
-        emoji: "🥤"
-    },
-    {
-        id: 9,
-        name: "Aloo Paratha",
-        category: "breakfast",
-        price: 45,
-        description: "Potato stuffed bread",
-        emoji: "🫓"
-    },
-    {
-        id: 10,
-        name: "Paneer Tikka",
-        category: "lunch",
-        price: 90,
-        description: "Grilled cheese cubes",
-        emoji: "🍗"
-    },
-    {
-        id: 11,
-        name: "Vada",
-        category: "snacks",
-        price: 20,
-        description: "Deep-fried lentil fritter",
-        emoji: "🍩"
-    },
-    {
-        id: 12,
-        name: "Chai",
-        category: "beverages",
-        price: 10,
-        description: "Indian spiced tea",
-        emoji: "☕"
-    }
+        emoji: "🍞"
 ];
 
 // Cart array

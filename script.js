@@ -170,11 +170,8 @@ function removeFromCart(itemId) {
 // Update cart summary
 function updateCartSummary() {
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const tax = subtotal * 0.05;
-    const total = subtotal + tax;
 
-    document.getElementById('subtotal').textContent = `₱${subtotal.toFixed(2)}`;
-    document.getElementById('total').textContent = `₱${total.toFixed(2)}`;
+      document.getElementById('total').textContent = `₱${total.toFixed(2)}`;
 }
 
 // Update cart count
@@ -238,25 +235,6 @@ function setupPaymentToggle() {
     });
 }
 
-// Generate UPI link
-function generateUPILink() {
-    const upiId = document.getElementById('upiId').value;
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const tax = total * 0.05;
-    const finalAmount = total + tax;
-
-    if (!upiId) {
-        alert('Please enter your UPI ID');
-        return;
-    }
-
-    const upiLink = `upi://pay?pa=${upiId}&pn=School%20Canteen&am=${finalAmount.toFixed(2)}&tn=Pre-Order%20Payment`;
-    alert('UPI Link Generated! Your payment link:\n' + upiLink + '\n\nThis will open your UPI app.');
-    
-    // In a real app, you would open the UPI link
-    window.location.href = upiLink;
-}
-
 // Validate form
 function validateForm() {
     const studentName = document.getElementById('studentName').value.trim();
@@ -279,36 +257,6 @@ function validateForm() {
         return false;
     }
 
-    if (paymentMethod === 'upi') {
-        const upiId = document.getElementById('upiId').value.trim();
-        if (!upiId) {
-            alert('Please enter your UPI ID');
-            return false;
-        }
-    }
-
-    if (paymentMethod === 'card') {
-        const cardName = document.getElementById('cardName').value.trim();
-        const cardNumber = document.getElementById('cardNumber').value.trim();
-        const cardExpiry = document.getElementById('cardExpiry').value.trim();
-        const cardCVV = document.getElementById('cardCVV').value.trim();
-
-        if (!cardName || !cardNumber || !cardExpiry || !cardCVV) {
-            alert('Please fill in all card details');
-            return false;
-        }
-
-        if (cardNumber.replace(/\s/g, '').length !== 16) {
-            alert('Card number must be 16 digits');
-            return false;
-        }
-
-        if (cardCVV.length !== 3) {
-            alert('CVV must be 3 digits');
-            return false;
-        }
-    }
-
     return true;
 }
 
@@ -329,8 +277,7 @@ function placeOrder() {
     const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
 
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const tax = subtotal * 0.05;
-    const total = subtotal + tax;
+    const total = subtotal
 
     const orderId = 'ORD' + Date.now();
     
@@ -342,7 +289,6 @@ function placeOrder() {
         paymentMethod,
         items: [...cart],
         subtotal,
-        tax,
         total,
         status: 'pending',
         date: new Date().toLocaleString(),

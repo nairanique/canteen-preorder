@@ -20,6 +20,7 @@ const menuData = [
         category: "snacks",
         price: 15,
         emoji: "🍞"
+    }
 ];
 
 // Cart array

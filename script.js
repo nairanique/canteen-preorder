@@ -278,6 +278,8 @@ function placeOrder() {
 
 const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
+const orderId = 'ORD' + Date.now();
+
 const order = {
     id: orderId,
     studentName,

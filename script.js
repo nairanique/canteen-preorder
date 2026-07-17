@@ -375,7 +375,7 @@ function displayOrders() {
                 </div>
                 <div class="order-detail-item">
                     <span><strong>Payment:</strong></span>
-                    <span>${order.paymentMethod === 'cash' ? 'Cash' : order.paymentMethod === 'upi' ? 'UPI' : 'Card'}</span>
+                    <span>${order.paymentMethod === 'cash' ? 'Cash' : 'GCash'}</span>
                 </div>
                 <div class="order-detail-item">
                     <span><strong>Ordered:</strong></span>
